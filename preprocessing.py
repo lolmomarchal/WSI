@@ -117,11 +117,14 @@ def normalize_tiles(tile_information, result_path):
     size = 512
     df_list = []
     columns = ['patient_id', 'x', 'y', 'magnification', 'path_to_slide']
+<<<<<<< HEAD
     repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
     reference_image_path = os.path.join(repo_root, 'Resources', "target.png")
     size = 512
     target = cv2.resize(cv2.cvtColor(cv2.imread(reference_image_path), cv2.COLOR_BGR2RGB), (size, size))
+=======
+>>>>>>> origin/main
     for i, row in tiles.iterrows():
         tile = row["path_to_slide"]
         mag = row["magnification"]
@@ -131,6 +134,12 @@ def normalize_tiles(tile_information, result_path):
         tile = cv2.resize(cv2.cvtColor(cv2.imread(tile), cv2.COLOR_BGR2RGB), (size, size))
         try:
             if tile is not None:
+<<<<<<< HEAD
+=======
+                reference_image_path = r"C:\Users\albao\Downloads\target.png"
+                size = 512
+                target = cv2.resize(cv2.cvtColor(cv2.imread(reference_image_path), cv2.COLOR_BGR2RGB), (size, size))
+>>>>>>> origin/main
 
                 T = transforms.Compose([
                     transforms.ToTensor(),
