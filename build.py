@@ -23,8 +23,6 @@ if TYPE_CHECKING:
     import numpy as np
 from tiatoolbox.tools.tissuemask import MorphologicalMasker
 from tiatoolbox.wsicore.wsireader import WSIReader
-%matplotlib inline
-%load_ext memory_profiler
 
 # Check if OS is Windows
 if os.name == 'nt':
