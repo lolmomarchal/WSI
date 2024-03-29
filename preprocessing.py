@@ -54,7 +54,7 @@ preprocessing.py
 
 Author: Lorenzo Olmo Marchal
 Created: March 12, 2024
-Last Updated:  March 20, 2024
+Last Updated:  March 26, 2024
 
 Description:
 This script automates the preprocessing and normalization of Whole Slide Images (WSI) in digital pathology. 
@@ -76,13 +76,10 @@ Future Directions:
 def whole_slide_mask(slide_path, results):
     try:
         wsi = WSIReader.open(input_img=slide_path)
-
-        wsi_thumb = wsi.slide_thumbnail(resolution=1.25, units="power")
-        plt.imshow(wsi_thumb)
-        mask = wsi.tissue_mask(resolution=1.25, units="power")
-        mask = wsi.tissue_mask(resolution=1.25, units="power")
+        wsi_thumb = wsi.slide_thumbnail(resolution=1, units="power")
+        mask = wsi.tissue_mask(resolution=1, units="power")
         mask_thumb = mask.slide_thumbnail(
-            resolution=1.25,
+            resolution=1,
             units="power",
         )
         plt.imshow(mask_thumb)
@@ -276,7 +273,7 @@ def preprocessing(path, result_path):
 
 
 def main():
-    # call_build_script()
+    call_build_script()
 
     path = input("Enter input path (or leave blank for default): ").strip()
     if not path:
